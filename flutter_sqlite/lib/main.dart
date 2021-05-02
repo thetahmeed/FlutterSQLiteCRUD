@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter SQLite Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'NextG Note',
       home: HomePage(),
     );
   }
