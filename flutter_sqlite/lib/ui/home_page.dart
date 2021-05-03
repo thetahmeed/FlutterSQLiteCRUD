@@ -66,9 +66,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: HexColor('4a4e69'),
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: HexColor('22223b'),
         title: Text(
-          'NextG Notes',
+          'Sepio',
           style: TextStyle(fontSize: 24, color: HexColor('f2e9e4')),
         ),
         actions: [
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: '\'NextG Notes\' is a child of ',
+                                text: '\'Sepio Notes\' is a child of ',
                                 style: TextStyle(color: HexColor('f2e9e4')),
                               ),
                               TextSpan(
@@ -147,6 +148,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildNotes() => StaggeredGridView.countBuilder(
+        //reverse: true,
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.all(8),
         itemCount: notes.length,
         staggeredTileBuilder: (index) => StaggeredTile.fit(2),
@@ -154,7 +157,8 @@ class _HomePageState extends State<HomePage> {
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
         itemBuilder: (context, index) {
-          final note = notes[index];
+          List<Note> reversedNotes = notes.reversed.toList();
+          final note = reversedNotes[index];
 
           return GestureDetector(
             onTap: () async {
