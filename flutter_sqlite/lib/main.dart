@@ -10,8 +10,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'NextG Note',
+      title: 'Sepio Notes',
       home: HomePage(),
     );
   }
 }
+
+
+/*
+LOGO FONT: MEDDON
+COLOR CODE: 4a4e69
+*/
