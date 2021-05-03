@@ -30,30 +30,34 @@ class NoteFormWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                children: [
-                  Tooltip(
-                    message: 'Mark as important',
-                    child: Switch(
-                      value: isImportant ?? false,
-                      onChanged: onChangedImportant,
-                      activeColor: HexColor('22223b'),
-                    ),
-                  ),
-                  Expanded(
-                    child: Tooltip(
-                      message: 'Important value',
-                      child: Slider(
-                        value: (number ?? 0).toDouble(),
-                        min: 0,
-                        max: 5,
-                        divisions: 5,
-                        onChanged: (number) => onChangedNumber(number.toInt()),
+              Visibility(
+                visible: false,
+                child: Row(
+                  children: [
+                    Tooltip(
+                      message: 'Mark as important',
+                      child: Switch(
+                        value: isImportant ?? false,
+                        onChanged: onChangedImportant,
                         activeColor: HexColor('22223b'),
                       ),
                     ),
-                  )
-                ],
+                    Expanded(
+                      child: Tooltip(
+                        message: 'Important value',
+                        child: Slider(
+                          value: (number ?? 0).toDouble(),
+                          min: 0,
+                          max: 5,
+                          divisions: 5,
+                          onChanged: (number) =>
+                              onChangedNumber(number.toInt()),
+                          activeColor: HexColor('22223b'),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
               buildTitle(),
               SizedBox(height: 8),
